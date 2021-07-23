@@ -2,7 +2,7 @@ function SelectFood(typeOfFood, food) {
   if (document.querySelector("." + typeOfFood + ".selected")) {
     let oldFood = document.querySelector("." + typeOfFood + ".selected");
     oldFood.classList.remove("selected");
-    let oldCheck = document.querySelector(".check.appear");
+    let oldCheck = document.querySelector(".appear." + typeOfFood);
     oldCheck.classList.remove("appear");
   }
 
@@ -16,6 +16,7 @@ function SelectFood(typeOfFood, food) {
     document.querySelector(".drink.selected") &&
     document.querySelector(".dessert.selected")
   ) {
-    alert("coco");
+    let confirmButton = document.querySelector(".confirmation");
+    confirmButton.classList.add("appear");
   }
 }
