@@ -45,21 +45,21 @@ function PriceSum() {
   finalPrice = String(finalPrice);
   finalPrice = finalPrice.replace(".", ",");
 }
+
 function whatsappMessage() {
   const finalFood = document.querySelector(".final-option.food").innerHTML;
   const finalDrink = document.querySelector(".final-option.drink").innerHTML;
   const finalDessert = document.querySelector(
     ".final-option.dessert"
   ).innerHTML;
-
-  alert(
-    "Olá, gostaria de fazer o pedido:\n- Prato: " +
-      finalFood +
-      "\n- Bebida: " +
-      finalDrink +
-      "\n- Sobremesa: " +
-      finalDessert +
-      "\nTotal: R$ " +
-      finalPrice
-  );
+  let message =
+    "Olá,%20gostaria%20de%20fazer%20o%20pedido:%0a-%20Prato:%20" +
+    finalFood +
+    "%0a-%20Bebida:%20" +
+    finalDrink +
+    "%0a-%20Sobremesa:%20" +
+    finalDessert +
+    "%0aTotal:%20R$%20" +
+    finalPrice;
+  window.location.replace("https://wa.me/5545998022472?text=" + message);
 }
