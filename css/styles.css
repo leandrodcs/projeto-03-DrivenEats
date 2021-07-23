@@ -10,6 +10,7 @@ body {
 
 /* HEADER */
 .header {
+  z-index: 1;
   width: 100%;
   height: 92px;
   background: #cf2b2b;
@@ -49,12 +50,13 @@ body {
   margin: 0 0 17px 16px;
 }
 .options-wrapper {
-  height: 216px;
-  margin-bottom: 27px;
+  height: 224px;
+  margin-bottom: 19px;
   display: flex;
   overflow-x: scroll;
 }
 .option {
+  position: relative;
   background: #ffffff;
   width: 172px;
   height: 216px;
@@ -90,8 +92,19 @@ body {
   color: #000000;
   font-weight: 400;
 }
+.check {
+  display: block;
+  position: absolute;
+  bottom: 5px;
+  right: 8px;
+  display: none;
+}
+.check img {
+  width: 15.44px;
+  height: 15.44px;
+}
 
-/* MAIN PAGE */
+/* FOOTER */
 
 .confirm-wrapper {
   width: 100%;
@@ -116,6 +129,8 @@ body {
   color: #ffffff;
 }
 
+/* FONTS */
+
 @font-face {
   font-family: roboto;
   src: url(../assets/Roboto-Regular.ttf);
@@ -130,4 +145,14 @@ body {
   font-family: roboto;
   src: url(../assets/Roboto-Light.ttf);
   font-weight: 300;
+}
+
+/* JAVA SCRIPT */
+
+.selected {
+  box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25),
+    inset 0px 0px 0px 5px #32b72f;
+}
+.appear {
+  display: block;
 }
