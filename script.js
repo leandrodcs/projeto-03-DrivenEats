@@ -47,6 +47,9 @@ function PriceSum() {
 }
 
 function whatsappMessage() {
+  const name = prompt("Qual é seu nome?");
+  const adress = prompt("Qual é seu endereço?");
+
   const finalFood = document.querySelector(".final-option.food").innerHTML;
   const finalDrink = document.querySelector(".final-option.drink").innerHTML;
   const finalDessert = document.querySelector(
@@ -60,6 +63,10 @@ function whatsappMessage() {
     "%0a-%20Sobremesa:%20" +
     finalDessert +
     "%0aTotal:%20R$%20" +
-    finalPrice;
+    finalPrice +
+    "%0a%0aNome:%20" +
+    name +
+    "%0aEndereço:%20" +
+    adress;
   window.location.replace("https://wa.me/5545998022472?text=" + message);
 }
