@@ -1,6 +1,14 @@
 let finalPrice = 0;
+let finalFood = "";
+let finalDrink = "";
+let finalDessert = "";
+let client = "";
+let adress = "";
+let foodPrice = "";
+let drinkPrice = "";
+let dessertPrice = "";
 
-function SelectFood(typeOfFood, food) {
+function DeselectFood(typeOfFood) {
   if (document.querySelector("." + typeOfFood + ".selected")) {
     let oldFood = document.querySelector("." + typeOfFood + ".selected");
     oldFood.classList.remove("selected");
@@ -11,7 +19,10 @@ function SelectFood(typeOfFood, food) {
     let oldFinalOption = document.querySelector(".final-option." + typeOfFood);
     oldFinalOption.classList.remove("final-option");
   }
+}
 
+function SelectFood(typeOfFood, food) {
+  DeselectFood(typeOfFood);
   let card = document.querySelector("." + food);
   card.classList.add("selected");
   let check = document.querySelector(".check." + food);
@@ -32,29 +43,52 @@ function SelectFood(typeOfFood, food) {
 }
 
 function PriceSum() {
-  let foodPrice = document.querySelector(".final-price.food").innerHTML;
+  foodPrice = document.querySelector(".final-price.food").innerHTML;
   foodPrice = foodPrice.replace(",", ".");
   foodPrice = Number(foodPrice);
-  let drinkPrice = document.querySelector(".final-price.drink").innerHTML;
+  drinkPrice = document.querySelector(".final-price.drink").innerHTML;
   drinkPrice = drinkPrice.replace(",", ".");
   drinkPrice = Number(drinkPrice);
-  let dessertPrice = document.querySelector(".final-price.dessert").innerHTML;
+  dessertPrice = document.querySelector(".final-price.dessert").innerHTML;
   dessertPrice = dessertPrice.replace(",", ".");
   dessertPrice = Number(dessertPrice);
   finalPrice = (foodPrice + drinkPrice + dessertPrice).toFixed(2);
   finalPrice = String(finalPrice);
   finalPrice = finalPrice.replace(".", ",");
+  foodPrice = foodPrice.toFixed(2);
+  foodPrice = String(foodPrice);
+  foodPrice = foodPrice.replace(".", ",");
+  drinkPrice = drinkPrice.toFixed(2);
+  drinkPrice = String(drinkPrice);
+  drinkPrice = drinkPrice.replace(".", ",");
+  dessertPrice = dessertPrice.toFixed(2);
+  dessertPrice = String(dessertPrice);
+  dessertPrice = dessertPrice.replace(".", ",");
 }
 
+function orderData() {
+  finalFood = document.querySelector(".final-option.food").innerHTML;
+  finalDrink = document.querySelector(".final-option.drink").innerHTML;
+  finalDessert = document.querySelector(".final-option.dessert").innerHTML;
+  document.querySelector(".confirm.food").innerHTML = finalFood;
+  document.querySelector(".confirm.food.price").innerHTML = foodPrice;
+  document.querySelector(".confirm.drink").innerHTML = finalDrink;
+  document.querySelector(".confirm.drink.price").innerHTML = drinkPrice;
+  document.querySelector(".confirm.dessert").innerHTML = finalDessert;
+  document.querySelector(".confirm.dessert.price").innerHTML = dessertPrice;
+  document.querySelector(".final.price").innerHTML = "R$ " + finalPrice;
+}
+function confirmScreen() {
+  let confirmPage = document.querySelector(".confirm-page");
+  confirmPage.classList.add("appear");
+}
+function cancelButton() {
+  let confirmPage = document.querySelector(".confirm-page");
+  confirmPage.classList.remove("appear");
+}
 function whatsappMessage() {
-  const name = prompt("Qual é seu nome?");
-  const adress = prompt("Qual é seu endereço?");
-
-  const finalFood = document.querySelector(".final-option.food").innerHTML;
-  const finalDrink = document.querySelector(".final-option.drink").innerHTML;
-  const finalDessert = document.querySelector(
-    ".final-option.dessert"
-  ).innerHTML;
+  client = prompt("Qual é seu nome?");
+  adress = prompt("Qual é seu endereço?");
   let message =
     "Olá,%20gostaria%20de%20fazer%20o%20pedido:%0a-%20Prato:%20" +
     finalFood +
@@ -65,7 +99,7 @@ function whatsappMessage() {
     "%0aTotal:%20R$%20" +
     finalPrice +
     "%0a%0aNome:%20" +
-    name +
+    client +
     "%0aEndereço:%20" +
     adress;
   window.location.replace("https://wa.me/5545998022472?text=" + message);

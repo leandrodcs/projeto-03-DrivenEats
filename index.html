@@ -205,9 +205,35 @@
     <div class="confirm-wrapper confirmation">
       <div
         class="confirm-button green-button"
-        onclick="PriceSum(); whatsappMessage()"
+        onclick="PriceSum(); orderData(); confirmScreen()"
       >
         Fechar pedido
+      </div>
+    </div>
+
+    <div class="confirm-page">
+      <div class="confirm-box">
+        <div class="confirm-header">Confirme seu pedido</div>
+        <div class="confirm-line">
+          <div class="confirm food"></div>
+          <div class="confirm food price"></div>
+        </div>
+        <div class="confirm-line">
+          <div class="confirm drink"></div>
+          <div class="confirm drink price"></div>
+        </div>
+        <div class="confirm-line">
+          <div class="confirm dessert"></div>
+          <div class="confirm dessert price"></div>
+        </div>
+        <div class="confirm-line">
+          <div>TOTAL</div>
+          <div class="final price"></div>
+        </div>
+        <div class="final-confirm-button" onclick="whatsappMessage()">
+          Tudo certo, pode pedir!
+        </div>
+        <div class="cancel" onclick="cancelButton()">Cancelar</div>
       </div>
     </div>
 
