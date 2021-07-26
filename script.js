@@ -79,6 +79,8 @@ function orderData() {
   document.querySelector(".final.price").innerHTML = "R$ " + finalPrice;
 }
 function confirmScreen() {
+  PriceSum();
+  orderData();
   let confirmPage = document.querySelector(".confirm-page");
   confirmPage.classList.add("appear");
 }
